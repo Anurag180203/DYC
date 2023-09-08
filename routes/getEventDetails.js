@@ -1,10 +1,15 @@
-const eventdetails = require('../models/eventdetails');
+const eventDetails = require('../models/eventDetails');
 
-module.exports = (app) => {
-    app.get('/getEventDetails', (req, res) => {
-        eventdetails.find({}, (err, data) => {
-            if(err) {console.log(err);throw err;}
-            res.send(data);
-        });
-    });
+async function getEventDetails(req, res) {
+    try {
+        let data = await eventDetails.find({});
+        res.status(200).send(data);
+    } catch(err) {
+        console.log(err);
+        throw err;
+    }
+}
+
+module.exports = {
+    getEventDetails
 }

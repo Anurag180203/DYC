@@ -10,17 +10,19 @@ const contact = require('./models/contact');
 
 const db = require('./db');
 
-app.get('/', (req,res) => {
-    res.send('Hello World!');
-});
+const {getContacts, getEventDetails, getHappenings} = require('./routes/getRoutes.js');
+const {createContacts, createEventDetails, createHappenings, deleteContact, deleteHappenings} = require('./routes/adminRoutes.js');
 
-app.post('/post', async (req,res) => {
-    let name = req.body.name;
-    await contact.create({
-        name: name
-    });
-    res.send('Hello World!');
-});
+app.get('/getContacts', getContacts);
+app.get('/getEventDetails', getEventDetails);
+app.get('/getHappenings', getHappenings);
+
+app.post('/createContacts', createContacts);
+app.post('/createEventDetails', createEventDetails);
+app.post('/createHappenings', createHappenings);
+
+app.delete('/deleteContact', deleteContact);
+app.delete('/deleteHappenings', deleteHappenings);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

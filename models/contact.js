@@ -5,7 +5,7 @@ const contacts = new mongoose.Schema({
     name: String,
     linkedin: String,
     imageUrl: String,
-    number: Number
+    phone: Number
 });
 
 module.exports = mongoose.model('Contacts', contacts); 
