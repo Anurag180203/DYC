@@ -1,6 +1,6 @@
 const contacts = require('../models/contacts');
 
-async function createContact(req, res) {
+async function createContacts(req, res) {
     try {
         let data = await contacts.create({
             name: req.body.name,
@@ -12,10 +12,9 @@ async function createContact(req, res) {
         res.status(200).send(data);
     } catch(err) {
         console.log(err);
-        throw err;
     }
 }
 
 module.exports = {
-    createContact
+    createContacts
 }

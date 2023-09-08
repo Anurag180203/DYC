@@ -1,4 +1,4 @@
-const eventDetails = require('../models/eventDetails');
+const eventDetails = require('../models/eventdetails');
 
 async function createEventDetails(req, res) {
     try {
@@ -15,7 +15,6 @@ async function createEventDetails(req, res) {
         res.status(200).send(data);
     } catch(err) {
         console.log(err);
-        throw err;
     }
 }
 

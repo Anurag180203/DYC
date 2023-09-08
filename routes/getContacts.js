@@ -6,7 +6,6 @@ async function getContacts(req, res) {
         res.status(200).send(data);
     } catch(err) {
         console.log(err);
-        throw err;
     }
 }
 
